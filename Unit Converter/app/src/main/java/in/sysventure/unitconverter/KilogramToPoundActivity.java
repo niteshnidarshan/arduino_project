@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class KilogramToPoundActivity extends AppCompatActivity {
 
@@ -80,6 +81,9 @@ public class KilogramToPoundActivity extends AppCompatActivity {
             double kg = Double.parseDouble(editTextKgValue.getText().toString());
             double poundResult = kg*POUND_VALUE;
             result.setText(String.valueOf(poundResult)+" lbs");
+
+            //Toast is used to some message on screen for a while - will disappear within a few seconds.
+            Toast.makeText(this, "Thanks for using Unit Converter", Toast.LENGTH_SHORT).show();
         }
 
     }
