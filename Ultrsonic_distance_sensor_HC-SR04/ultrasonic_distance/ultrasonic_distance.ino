@@ -37,13 +37,13 @@ distanceInch = duration*0.0133/2;
 //Serial.print(distanceCm);
 //Serial.print(" cm");
 //Serial.println();
-lcd.setCursor(0,1);
+lcd.setCursor(0,1);//column, row [line 2]
 //Serial.println("Jai Ram G ki");
 //lcd.print("Hello World!");
 lcd.print("distance: ");
 lcd.print(distanceCm);
 lcd.println(" cm");
-lcd.setCursor(0,0);
+lcd.setCursor(0,0);//column, row [line 1]
 lcd.print("Jai Ram G ki");
 delay(1000);
 }
