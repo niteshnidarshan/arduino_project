@@ -4,50 +4,38 @@
 #include <Wire.h> 
 #include <LiquidCrystal_I2C.h>
 
-LiquidCrystal_I2C lcd(0x27,20,4);  // set the LCD address to 0x27 for a 16 chars and 2 line display
-int numRows = 2;
-int numCols = 16;
+LiquidCrystal_I2C lcd(0x27,16,2);  // set the LCD address to 0x27 for a 16 chars and 2 line display
+
+// The additional white space is intentional to make things legible and look nice.
+String str = "       Jai Ram G ki! This is Nitesh nidarshan from Bihar...              ";
+int i = 0;
+int strLength;
+String toShow;
 void setup()
 {
   lcd.init();                      // initialize the lcd 
   lcd.backlight(); 
+  strLength = str.length();
+  lcd.clear();
+  lcd.home();
 }
 
 void loop()
 {
-  lcd.clear();
+  lcd.home();
 
-  for(byte i=0; i<15; i++){
-    lcd.setCursor(2,0);
-    lcd.print("Jai Ram G ki");
-    lcd.setCursor(15-i, 1);
-    lcd.print("Hello World!   "); //make it total 15 charcter.
-    delay(700);
-  }
+  // Get 16 characters so that we can display on the LCD
+  toShow = str.substring(i,i+16);
   
-  /*marquee("Jai Ram G ki ............");
-  delay(1000);
-  lcd.clear();*/
-  
-}
+  // print the number of seconds since reset:
+  lcd.print(toShow);
 
-/*void marquee(char *text)
-{
-  int length = strlen(text);
-  if(length < numCols)
-    lcd.print(text);
-  else
-  {
-    int pos;
-    for(pos = 0; pos < numCols; pos++)
-      lcd.print(text[pos]);
-    delay(1000);
-    while(pos < length)
-    {
-      lcd.scrollDisplayLeft();
-      lcd.print(text[pos]);
-      pos = pos + 1;
-      delay(500);  
-    }  
+  i = i + 2;
+
+  // We have to reset i after there is less text displayed.
+  if(i>(strLength-16)) {
+    i = 0;
   }
-}*/
+
+  delay(500);
+} 
