@@ -7,7 +7,7 @@
 LiquidCrystal_I2C lcd(0x27,16,2);  // set the LCD address to 0x27 for a 16 chars and 2 line display
 
 // The additional white space is intentional to make things legible and look nice.
-String str = "       Jai Ram G ki! This is Nitesh nidarshan from Bihar...              ";
+String str = "       This is Nitesh nidarshan from Bihar...              ";
 int i = 0;
 int strLength;
 String toShow;
@@ -22,8 +22,11 @@ void setup()
 
 void loop()
 {
-  lcd.home();
+  //lcd.home();
+  lcd.setCursor(0,0);
+  lcd.print("Jai Ram G ki!" );
 
+  lcd.setCursor(0,1);
   // Get 16 characters so that we can display on the LCD
   toShow = str.substring(i,i+16);
   
