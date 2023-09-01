@@ -1,7 +1,8 @@
 #include <Wire.h> 
 #include <LiquidCrystal_I2C.h>
+//LCD pins connection: No need to define analog pins here. Connect SDA to A4 of arduino and SCL to A5 of arduino
+//Ultrasonic sensor connection: defines pins numbers
 
-// defines pins numbers
 const int trigPin = 9;
 const int echoPin = 10;
 int distanceCm, distanceInch;
