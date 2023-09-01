@@ -5,7 +5,7 @@
 #include <LiquidCrystal_I2C.h>
 
 LiquidCrystal_I2C lcd(0x27,16,2);  // set the LCD address to 0x27 for a 16 chars and 2 line display
-
+//Connect SDA to A4 of arduino and SCL to A5 of arduino
 // The additional white space is intentional to make things legible and look nice.
 String str = "       This is Nitesh nidarshan from Bihar...              ";
 int i = 0;
