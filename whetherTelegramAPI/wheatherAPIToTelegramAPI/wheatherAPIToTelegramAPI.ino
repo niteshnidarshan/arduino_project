@@ -2,9 +2,9 @@
 #include <HTTPClient.h>
 #include <ArduinoJson.h>
 
-const char* ssid = "JioFiber-XCC3a";
-const char* password = "abcde@nidarshan";
-//const char* apiKey = "2972c934abb7cda204f2a3395949a21f";
+const char* ssid = "";
+const char* password = "";
+//const char* apiKey = "2972c934abb7cda204f2a3395949a21fxxx";
 
 //Json parse configuration
   const size_t bufferSize = JSON_OBJECT_SIZE(1024); // Adjust the size accordingly
@@ -33,7 +33,7 @@ void getWeatherData() {
   HTTPClient http;
 
   // Your weather API URL
-  String url = "https://api.openweathermap.org/data/2.5/weather?lat=25.5433817&lon=87.5690417&appid=2972c934abb7cda204f2a3395949a21f&units=metric";
+  String url = "https://api.openweathermap.org/data/2.5/weather?lat=25.5433817&lon=87.5690417&appid=2972c934abb7cda204f2a3395949a21fxxx&units=metric";
 
   http.begin(url);
 
@@ -66,7 +66,7 @@ void getWeatherData() {
       Serial.println(message);
 
       //send to telegram
-      String telegramUrl = "https://api.telegram.org/bot6333265379:AAGcg1_Q3liMvYDFlH7p-yx2-bYZTeoAwpg/sendMessage?chat_id=-952060841&text="+message;
+      String telegramUrl = "https://api.telegram.org/bot6333265379:AAGcg1_Q3liMvYDFlH7p-yx2-bYZTeoAwpgxxx/sendMessage?chat_id=-952060841xxx&text="+message;
       http.begin(telegramUrl);
       int httpCode1 = http.GET();
 
